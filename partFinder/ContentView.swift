@@ -1,14 +1,8 @@
-//
-//  ContentView.swift
-//  partFinder
-//
-//  Created by Gerardo Cervantes on 2/5/25.
-//
-
 /*
  Welcome to partFinder team
  
- 
+ ContentView.swift
+ Created by Gerardo Cervantes on 2/4/25
  */
 import SwiftUI
 
@@ -61,6 +55,7 @@ struct ContentView: View {
                         Text("Year: \(vehicle.year)")
                         Text("Color: \(vehicle.color)")
                     }
+                    
                     .foregroundColor(.blue)
                     .padding()
 
@@ -74,7 +69,7 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .background(Color.blue.opacity(0.8))
+                                .background(Color.blue.opacity(0.9))
                                 .cornerRadius(10)
                                 .padding(.horizontal)
                         }
@@ -104,7 +99,7 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.red.opacity(0.8))
+                            .background(Color.green.opacity(0.8))
                             .cornerRadius(10)
                             .padding(.horizontal)
                     }
@@ -147,7 +142,7 @@ struct ContentView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal)
 
-                        TextField("Year", text: $year)
+                        TextField("Year", text:$year)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal)
 
