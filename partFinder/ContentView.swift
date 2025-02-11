@@ -23,33 +23,38 @@ struct ContentView: View {
     @State private var color: String = ""
     @State private var showPartsDropdown: Bool = false
     
+    // list of relavantParts shown later with showRelavantParts
     var relevantParts = ["Battery", "Oil Filter", "Brake Pads", "Spark Plugs", "Air Filter", "Tires", "FIXME: add more options?"]
 
     var body: some View {
         NavigationView {
             VStack {
-                Spacer().frame(height: 100) // ensures font begins under "dynamic island"
+                // ensures font begins under "dynamic island"
+                Spacer().frame(height: 100)
                 
-                // Title with centered dash & navigation to home
+                // title with centered dash & navigation to home
                 VStack {
                     Button(action: {
-                        selectedVehicle = nil // Reset selection to show vehicle list
+                        // reset selection to show vehicle list
+                        selectedVehicle = nil
                     }) {
                         Text("partFinder")
-                            .font(.custom("SnellRoundhand-Bold", size: 45)) // font style: cursive
-                            .foregroundColor(Color.blue.opacity(500)) // font color
+                            // font style: cursive
+                            .font(.custom("SnellRoundhand-Bold", size: 45))
+                            // font color
+                            .foregroundColor(Color.blue.opacity(500))
                             .underline()
                     }
                 }
                 .padding(.bottom, 110)
 
                 if let vehicle = selectedVehicle {
-                    // Display selected vehicle info
+                    // display selected vehicle info
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Selected Vehicle:")
                             .font(.title2)
                             .foregroundColor(.white)
-                        
+                        //FIXME: might look better displayed on one line (could have)
                         Text("Make: \(vehicle.make)")
                         Text("Model: \(vehicle.model)")
                         Text("Year: \(vehicle.year)")
@@ -59,7 +64,7 @@ struct ContentView: View {
                     .foregroundColor(.blue)
                     .padding()
 
-                    // Dropdown for relevant parts
+                    // dropdown for relevant parts
                     VStack {
                         Button(action: {
                             showPartsDropdown.toggle()
@@ -90,7 +95,7 @@ struct ContentView: View {
                         }
                     }
 
-                    // Option to go back and select another vehicle
+                    // option to go back and select another vehicle
                     Button(action: {
                         selectedVehicle = nil
                     }) {
@@ -104,7 +109,7 @@ struct ContentView: View {
                             .padding(.horizontal)
                     }
                     Button(action: {
-                    // Option to remove a vehicle FIXME: need to add functionality
+                    // option to remove a vehicle FIXME: need to add functionality
                     }) {
                         Text("Remove Vehicle")
                             .font(.headline)
@@ -117,7 +122,7 @@ struct ContentView: View {
                     }
                 } else {
                     if !vehicles.isEmpty {
-                        // Show list of stored vehicles for selection
+                        // show list of stored vehicles for selection and give option to add new vehicle
                         Text("Select a Vehicle or Add a New One:")
                             .font(.title2)
                             .foregroundColor(.white)
@@ -137,7 +142,8 @@ struct ContentView: View {
                                     .padding(.horizontal)
                             }
                         }
-
+                        // allows users to add multiple vehicles
+                        // FIXME: store vehicle information once profiles can be set
                         Text("Or Add a New Vehicle:")
                             .font(.title2)
                             .foregroundColor(.white)
@@ -176,6 +182,7 @@ struct ContentView: View {
                             color = ""
                         }
                     }) {
+                        // allow user to save vehicle information
                         Text("Save Vehicle")
                             .font(.headline)
                             .foregroundColor(.white)
@@ -190,12 +197,14 @@ struct ContentView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black) // Black background
-            .ignoresSafeArea() // Extends background to full screen
+            // black background
+            .background(Color.black)
+            // extends background to full screen
+            .ignoresSafeArea()
         }
     }
 }
-
+// allows us to view app demo via iphone or ipad in content view
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
