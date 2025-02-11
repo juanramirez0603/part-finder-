@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var color: String = ""
     @State private var showPartsDropdown: Bool = false
     
-    let relevantParts = ["Battery", "Oil Filter", "Brake Pads", "Spark Plugs", "Air Filter", "Tires", "FIXME: add more options?"]
+    var relevantParts: [String] = ["Battery", "Oil Filter", "Brake Pads", "Spark Plugs", "Air Filter", "Tires", "FIXME: add more options?"]
 
     var body: some View {
         NavigationView {
