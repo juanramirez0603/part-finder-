@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var color: String = ""
     @State private var showPartsDropdown: Bool = false
     
-    var relevantParts: [String] = ["Battery", "Oil Filter", "Brake Pads", "Spark Plugs", "Air Filter", "Tires", "FIXME: add more options?"]
+    var relevantParts = ["Battery", "Oil Filter", "Brake Pads", "Spark Plugs", "Air Filter", "Tires", "FIXME: add more options?"]
 
     var body: some View {
         NavigationView {
@@ -100,6 +100,18 @@ struct ContentView: View {
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.green.opacity(0.8))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                    }
+                    Button(action: {
+                    // Option to remove a vehicle FIXME: need to add functionality
+                    }) {
+                        Text("Remove Vehicle")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.white.opacity(0.8))
                             .cornerRadius(10)
                             .padding(.horizontal)
                     }
