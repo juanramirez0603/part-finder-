@@ -54,11 +54,15 @@ struct ContentView: View {
                         Text("Selected Vehicle:")
                             .font(.title2)
                             .foregroundColor(.white)
-                        //FIXME: might look better displayed on one line (could have)
+                        //FIXME: keep as one line or seperate?
+                        
+                        Text("\(vehicle.year) \(vehicle.make) \(vehicle.model) \(vehicle.color)")
+                        /*
                         Text("Make: \(vehicle.make)")
                         Text("Model: \(vehicle.model)")
                         Text("Year: \(vehicle.year)")
                         Text("Color: \(vehicle.color)")
+                         */
                     }
                     
                     .foregroundColor(.blue)
